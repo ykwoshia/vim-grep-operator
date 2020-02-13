@@ -26,7 +26,7 @@ function! s:GrepOperator(type)
         return
     endif
 
-    silent execute "grep! -R " . shellescape(@@) . " ."
+    silent execute "grep! -P -i -I -n --exclude-dir=.git --exclude=tags -R " . shellescape(@@) . " ."
     copen
 
     let @@ = saved_unnamed_register
